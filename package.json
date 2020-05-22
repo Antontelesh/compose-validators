@@ -2,9 +2,13 @@
   "name": "compose-validators",
   "version": "0.0.0",
   "description": "Composable JavaScript validators",
-  "main": "lib/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "clean": "rimraf dist",
+    "build": "tsc",
+    "lint": "eslint ./src/**/*.ts",
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,5 +22,27 @@
   "bugs": {
     "url": "https://github.com/Antontelesh/compose-validators/issues"
   },
-  "homepage": "https://github.com/Antontelesh/compose-validators#readme"
+  "homepage": "https://github.com/Antontelesh/compose-validators#readme",
+  "devDependencies": {
+    "@types/jest": "^25.2.3",
+    "@typescript-eslint/eslint-plugin": "^3.0.0",
+    "@typescript-eslint/parser": "^3.0.0",
+    "eslint": "^7.0.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.0.0",
+    "typescript": "^3.9.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts}": "eslint --cache --fix",
+    "*.{js,ts,css,md}": "prettier --write"
+  }
 }
