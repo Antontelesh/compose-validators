@@ -5,10 +5,10 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "clean": "rimraf dist",
-    "build": "tsc",
+    "build": "rimraf dist && tsc",
+    "docs": "rimraf docs && typedoc",
     "lint": "eslint ./src/**/*.ts",
-    "test": "jest"
+    "test": "jest --coverage"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,8 @@
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
     "ts-jest": "^26.0.0",
+    "typedoc": "^0.17.7",
+    "typedoc-plugin-markdown": "^2.2.17",
     "typescript": "^3.9.3"
   },
   "husky": {

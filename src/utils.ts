@@ -1,2 +1,4 @@
-export const isEmpty = (obj: Record<string, unknown>) =>
-  Object.keys(obj).length === 0;
+import { ValidationResult } from "./types";
+
+export const isValid = (result: ValidationResult): boolean =>
+  Object.keys(result).length === 0;
