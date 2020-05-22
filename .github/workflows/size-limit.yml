@@ -1,8 +1,9 @@
-name: "Size Limit"
+name: Size
+
 on:
   pull_request:
-    branches:
-      - master
+    branches: [master]
+
 jobs:
   size:
     name: Size Limit
