@@ -1,6 +1,6 @@
 {
   "name": "compose-validators",
-  "version": "0.0.0",
+  "version": "0.0.0-development",
   "description": "Composable JavaScript validators",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -9,7 +9,8 @@
     "docs": "rimraf docs && typedoc",
     "lint": "eslint ./src/**/*.ts",
     "test": "jest --coverage",
-    "size": "size-limit"
+    "size": "size-limit",
+    "semantic-release": "semantic-release"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,7 @@
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "semantic-release": "^17.0.7",
     "size-limit": "^4.5.0",
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
