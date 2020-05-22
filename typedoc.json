@@ -4,7 +4,6 @@
   "out": "docs",
   "name": "Docs",
   "readme": "none",
-  "exclude": "**/utils.ts",
   "excludeNotExported": true,
   "excludePrivate": true,
   "stripInternal": true
