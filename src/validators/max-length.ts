@@ -1,4 +1,4 @@
-import { Validator } from "../types";
+import type { Validator } from "../types";
 
 /**
  * Given a string, array or any other object having a `length: number`

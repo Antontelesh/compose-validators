@@ -1,2 +1,2 @@
 export * from "./validators";
-export * from "./types";
+export type { Validator, ValidationResult } from "./types";

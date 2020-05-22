@@ -8,7 +8,8 @@
     "build": "rimraf dist && tsc",
     "docs": "rimraf docs && typedoc",
     "lint": "eslint ./src/**/*.ts",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "size": "size-limit"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/Antontelesh/compose-validators#readme",
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.5.0",
     "@types/jest": "^25.2.3",
     "@typescript-eslint/eslint-plugin": "^3.0.0",
     "@typescript-eslint/parser": "^3.0.0",
@@ -33,6 +35,7 @@
     "lint-staged": "^10.2.6",
     "prettier": "^2.0.5",
     "rimraf": "^3.0.2",
+    "size-limit": "^4.5.0",
     "ts-jest": "^26.0.0",
     "typedoc": "^0.17.7",
     "typedoc-plugin-markdown": "^2.2.17",
@@ -46,5 +49,10 @@
   "lint-staged": {
     "*.{js,ts}": "eslint --cache --fix",
     "*.{js,ts,css,md}": "prettier --write"
-  }
+  },
+  "size-limit": [
+    {
+      "path": "dist/index.js"
+    }
+  ]
 }

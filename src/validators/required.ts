@@ -1,4 +1,4 @@
-import { Validator } from "../types";
+import type { Validator } from "../types";
 
 /**
  * @internal

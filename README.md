@@ -30,7 +30,7 @@ It is focused on
 
 - Composition. In `compose-validators` everything is a validator, so you can compose your validators to get more complex ones while having the same API everywhere.
 - Type safety. It is written in TypeScript meaning that you get your validators being statically typed out of the box.
-- Small size. We want the library to be as lightweight as possible while keeping the source code readable. Also, it has zero runtime dependencies.
+- Small size. We want the library to be as lightweight as possible while keeping the source code readable. Also, it has zero runtime dependencies. It's now 729 bytes according to [size-limit](ai/size-limit).
 
 ## Concepts
 

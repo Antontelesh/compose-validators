@@ -1,4 +1,4 @@
-import { Validator } from "../types";
+import type { Validator } from "../types";
 
 /**
  * Given a number checks it against an expected minimum.

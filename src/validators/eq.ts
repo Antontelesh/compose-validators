@@ -1,4 +1,4 @@
-import { Validator } from "../types";
+import type { Validator } from "../types";
 
 /**
  * Checks whether an actual value equals to expected.
