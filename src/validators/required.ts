@@ -2,9 +2,8 @@ import type { Validator } from "../types";
 
 /**
  * @internal
- * @param value
  */
-const isValid = (value: any) => {
+const check = (value: any) => {
   switch (typeof value) {
     case "boolean":
     case "number":
@@ -37,6 +36,6 @@ const isValid = (value: any) => {
  * @param value
  */
 export const required: Validator<any> = (value) => {
-  if (isValid(value)) return {};
+  if (check(value)) return {};
   return { required: true };
 };
