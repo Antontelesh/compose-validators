@@ -2,6 +2,7 @@
 
 Composable JavaScript validators
 
+![Tests](https://github.com/Antontelesh/compose-validators/workflows/Tests/badge.svg?branch=master)
 [![codecov](https://codecov.io/gh/Antontelesh/compose-validators/branch/master/graph/badge.svg)](https://codecov.io/gh/Antontelesh/compose-validators)
 
 ## Install
