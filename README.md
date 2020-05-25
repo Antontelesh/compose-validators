@@ -81,3 +81,53 @@ you will get the following validation result:
 This validation result is non deterministic about your actual error messages,
 it does not deal with any sort of i18n,
 though provides enough information for you to display a clean error message.
+
+## Custom validators
+
+You can define and use your own validators with this library.
+To be composable with built-in ones your validator should be a function
+that takes a value to be validated and returns either an empty object if the value is valid
+or something else in case the value is invalid.
+
+We recommend you to always return a plain object, which has a property named after your validator
+in order to keep the same style of validation results.
+
+Here's an example of creating a custom validator for email strings:
+
+```ts
+import { compose, object, string } from "compose-validators";
+
+const email = (value) => {
+  // place your regular expression instead if you wish
+  if (value.includes("@")) {
+    // input is valid, return an empty object
+    return {};
+  }
+
+  // input is invalid, return an object with the an error description
+  return {
+    email: true,
+  };
+};
+
+const validateForm = object({
+  email: compose(string, email),
+  message: string,
+});
+
+expect(
+  validateForm({
+    email: "abc",
+    message: "message",
+  })
+).toEqual({
+  email: { email: true },
+});
+
+expect(
+  validateForm({
+    email: "test@email.com",
+    message: "message",
+  })
+).toEqual({});
+```
