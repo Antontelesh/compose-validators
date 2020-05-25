@@ -6,5 +6,6 @@
   "readme": "none",
   "excludeNotExported": true,
   "excludePrivate": true,
-  "stripInternal": true
+  "stripInternal": true,
+  "disableSources": true
 }

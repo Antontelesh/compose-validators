@@ -21,6 +21,7 @@
 - [arrayOf](README.md#const-arrayof)
 - [compose](README.md#const-compose)
 - [eq](README.md#const-eq)
+- [isValid](README.md#const-isvalid)
 - [max](README.md#const-max)
 - [maxLength](README.md#const-maxlength)
 - [min](README.md#const-min)
@@ -35,8 +36,6 @@
 
 Ƭ **ValidationResult**: _Record‹string, unknown›_
 
-_Defined in [types.ts:5](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/types.ts#L5)_
-
 ValidationResult is an object with errors.
 Empty object means valid entity.
 
@@ -45,8 +44,6 @@ Empty object means valid entity.
 ### Validator
 
 Ƭ **Validator**: _function_
-
-_Defined in [types.ts:12](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/types.ts#L12)_
 
 Validator is a function
 that accepts a value to be validated
@@ -67,8 +64,6 @@ and returns a validation result.
 ### `Const` array
 
 • **array**: _function_ = type("array", Array.isArray)
-
-_Defined in [validators/type.ts:93](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/type.ts#L93)_
 
 A handy utility on top of [type](README.md#const-type) validator.
 Checks that the given value is array by using the `Array.isArray` function.
@@ -98,8 +93,6 @@ array([]); // => {}
 
 • **boolean**: _function_ = type("boolean")
 
-_Defined in [validators/type.ts:47](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/type.ts#L47)_
-
 A handy utility on top of [type](README.md#const-type) validator.
 Checks that the given value is boolean by using the `typeof` operator.
 
@@ -127,8 +120,6 @@ boolean(true); // => {}
 ### `Const` number
 
 • **number**: _function_ = type("number")
-
-_Defined in [validators/type.ts:63](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/type.ts#L63)_
 
 A handy utility on top of [type](README.md#const-type) validator.
 Checks that the given value is number by using the `typeof` operator.
@@ -159,8 +150,6 @@ number(NaN); // => {}
 
 • **string**: _function_ = type("string")
 
-_Defined in [validators/type.ts:78](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/type.ts#L78)_
-
 A handy utility on top of [type](README.md#const-type) validator.
 Checks that the given value is string by using the `typeof` operator.
 
@@ -188,8 +177,6 @@ string("abc"); // => {}
 ### `Const` arrayOf
 
 ▸ **arrayOf**<**Item**>(`validator`: [Validator](README.md#validator)‹Item›): _[Validator](README.md#validator)‹Item[]›_
-
-_Defined in [validators/array-of.ts:34](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/array-of.ts#L34)_
 
 Creates a validator accepting arrays
 and runs provided item validator against every array item.
@@ -244,8 +231,6 @@ Type of array item
 
 ▸ **compose**<**T**>(...`validators`: [Validator](README.md#validator)‹T›[]): _[Validator](README.md#validator)‹T›_
 
-_Defined in [validators/compose.ts:27](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/compose.ts#L27)_
-
 Combines several validators and returns a composed validator
 that applies all given validators one by one.
 
@@ -283,8 +268,6 @@ expected value type
 ### `Const` eq
 
 ▸ **eq**<**T**>(`expected`: T, `comparator`: function): _[Validator](README.md#validator)‹T›_
-
-_Defined in [validators/eq.ts:22](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/eq.ts#L22)_
 
 Checks whether an actual value equals to expected.
 Accepts optional comparator as a second argument, where you can define custom comparison logic.
@@ -328,11 +311,26 @@ custom comparator (`Object.is` is used by default)
 
 ---
 
+### `Const` isValid
+
+▸ **isValid**(`result`: [ValidationResult](README.md#validationresult)): _boolean_
+
+A handy utility that converts validation result to a boolean.
+Basically it just checks that the validation result is an empty object.
+
+**Parameters:**
+
+| Name     | Type                                           | Description       |
+| -------- | ---------------------------------------------- | ----------------- |
+| `result` | [ValidationResult](README.md#validationresult) | validation result |
+
+**Returns:** _boolean_
+
+---
+
 ### `Const` max
 
 ▸ **max**(`num`: number): _[Validator](README.md#validator)‹number›_
-
-_Defined in [validators/max.ts:19](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/max.ts#L19)_
 
 Given a number checks it against an expected maximum.
 
@@ -360,8 +358,6 @@ validate(10); // => {}
 ### `Const` maxLength
 
 ▸ **maxLength**<**T**>(`length`: number): _[Validator](README.md#validator)‹T›_
-
-_Defined in [validators/max-length.ts:22](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/max-length.ts#L22)_
 
 Given a string, array or any other object having a `length: number`
 property, checks the actual length against expected maximum.
@@ -397,8 +393,6 @@ validate("abc"); // => {}
 
 ▸ **min**(`num`: number): _[Validator](README.md#validator)‹number›_
 
-_Defined in [validators/min.ts:19](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/min.ts#L19)_
-
 Given a number checks it against an expected minimum.
 
 **`example`**
@@ -425,8 +419,6 @@ validate(10); // => {}
 ### `Const` minLength
 
 ▸ **minLength**<**T**>(`length`: number): _[Validator](README.md#validator)‹T›_
-
-_Defined in [validators/min-length.ts:22](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/min-length.ts#L22)_
 
 Given a string, array or any other object having a `length: number`
 property, checks the actual length against expected minimum.
@@ -461,8 +453,6 @@ validate("abc"); // => {}
 ### `Const` object
 
 ▸ **object**<**T**>(`config`: object): _[Validator](README.md#validator)‹T›_
-
-_Defined in [validators/object.ts:30](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/object.ts#L30)_
 
 Takes a config object, which defines validators for necessary properties
 and returns a validator taking an object and validates its properties
@@ -512,8 +502,6 @@ person({ name: "John", age: 20 }); // => {}
 
 ▸ **required**(`value`: any): _object | object_
 
-_Defined in [validators/required.ts:39](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/required.ts#L39)_
-
 Checks that the value is defined and is not an empty string.
 
 **`example`**
@@ -544,8 +532,6 @@ required([]); // => {}
 ### `Const` type
 
 ▸ **type**<**T**>(`t`: string, `comparator`: (Anonymous function)): _[Validator](README.md#validator)‹T›_
-
-_Defined in [validators/type.ts:26](https://github.com/Antontelesh/compose-validators/blob/ac0a214/src/validators/type.ts#L26)_
 
 Checks the type of value by using the `typeof` operator.
 Accepts an optional custom comparator function, where you can define
